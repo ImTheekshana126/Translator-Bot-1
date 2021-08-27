@@ -18,22 +18,21 @@ FayasNoushad = Client(
 )
 
 START_TEXT = """
-Hello {}, I am a google translator telegram bot.
+Hello {}, I am a google translator telegram bot[🎉]("https://telegra.ph/file/0e40847e9ab8bbf142ff4.jpg").
 
-Made by @FayasNoushad
+Made by @Theekshana_Official 
 """
 HELP_TEXT = """
 - Just send a text with language code
 
 example :- `This is a sample text | ml`
 
-Made by @FayasNoushad
+Made by @Theekshana_Official
 """
 ABOUT_TEXT = """
 - **Bot :** `Translator Bot`
-- **Creator :** [Fayas](https://telegram.me/TheFayas)
-- **Channel :** [Fayas Noushad](https://telegram.me/FayasNoushad)
-- **Source :** [Click here](https://github.com/FayasNoushad/Translator-Bot)
+- **Creator :** [Fayas](t.me/imtheekshana)
+- **Channel :** [Theekshana Official](t.me/theekshana_Official)
 - **Language :** [Python3](https://python.org)
 - **Library :** [Pyrogram](https://pyrogram.org)
 - **Server :** [Heroku](https://heroku.com)
@@ -54,7 +53,7 @@ HELP_BUTTONS = InlineKeyboardMarkup(
     )
 ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Channel', url='https://telegram.me/FayasNoushad'),
+        InlineKeyboardButton('Channel', url='t.me/Theekshana_official'),
         InlineKeyboardButton('Feedback', url='https://telegram.me/TheFayas')
         ],[
         InlineKeyboardButton('Home', callback_data='home'),
@@ -69,7 +68,7 @@ CLOSE_BUTTON = InlineKeyboardMarkup(
     )
 TRANSLATE_BUTTON = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('⚙ Join Updates Channel ⚙', url='https://telegram.me/FayasNoushad')
+        InlineKeyboardButton('⚙ Join Updates Channel ⚙', url='t.me/Theekshana_official')
         ]]
     )
 DEFAULT_LANGUAGE = os.environ.get("DEFAULT_LANGUAGE", "en")
@@ -124,12 +123,12 @@ async def translate(bot, update):
             language = DEFAULT_LANGUAGE
     translator = Translator()
     await update.reply_chat_action("typing")
-    message = await update.reply_text("`Translating...`")
+    message = await update.reply_text("`🎉Translating...`")
     try:
         translate = translator.translate(text, dest=language)
         translate_text = f"**Translated to {language}**"
         translate_text += f"\n\n{translate.text}"
-        translate_text += "\n\nMade by @FayasNoushad"
+        translate_text += "\n\nMade by @Theekshana_Official"
         if len(translate_text) < 4096:
             await message.edit_text(
                 text=translate_text,
@@ -141,13 +140,13 @@ async def translate(bot, update):
                 translate_file.name = language + ".txt"
                 await update.reply_document(
                     document=translate_file,
-                    caption="Made by @FayasNoushad",
+                    caption="Made by @Theekshana_Official",
                     reply_markup=TRANSLATE_BUTTON
                 )
                 await message.delete()
     except Exception as error:
         print(error)
-        await message.edit_text("Something wrong. Contact @TheFayas.")
+        await message.edit_text("Something wrong. Contact @ImTheekshana.")
         return
 
 FayasNoushad.run()
