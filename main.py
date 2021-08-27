@@ -18,7 +18,7 @@ FayasNoushad = Client(
 )
 
 START_TEXT = """
-Hello {}, I am a google translator telegram bot[🎉]("https://telegra.ph/file/0e40847e9ab8bbf142ff4.jpg").
+Hello {}, I am a google translator telegram bot[🎉](https://telegra.ph/file/0e40847e9ab8bbf142ff4.jpg).
 
 Made by @Theekshana_Official 
 """
